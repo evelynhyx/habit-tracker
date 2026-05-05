@@ -38,5 +38,70 @@ for (var i = 0; i < days.length; i++) {
             day[j].setAttribute("style", "color: #e4d1bf;");
             day[j].setAttribute("style", "border: 2px solid black;");
         }
+        if (dayCount < daysInThisMonth) {
+            day[j].innerHTML = dayCount + 1;
+            day[j].setAttribute("id", "day" + (dayCount + 1));
+            dayCount++;
+        } else {
+            day[j].innerHTML = "";
+            day[j].setAttribute("style", "background-color: white;");
+        }
+    }
+    rowCount++;
+}
+
+var completed = new Array(31);
+for (var i = 0; i < dayCount; i++) {
+    var tempString = "" + (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+    console.log("Storing date: " + tempString);
+    var tempDay = localStorage.getItem(tempString);
+    console.log(tempDay);
+    if (tempDay == null || tempDay == "false") {
+        localStorage.setItem(tempString, "false");
+    } else if (tempDay == "true") {
+        daysCompleted++;
+    }
+    totalDays.innerHTML = daysCompleted + "/" + daysInThisMonth;
+}
+
+console.log("Completed array: " + completed);
+console.log("Total days completed: " + daysCompleted);
+
+for (var i = 0; i < currentDate; i++) {
+    var tempString = "" + (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+    console.log(tempString);
+    var chosenDay = localStorage.getItem(tempString);
+    console.log(i + 1 + ": " + chosenDay);
+    var chosenDayDiv = document.getElementById("day" + (i + 1));
+    if (chosenDay === "true") {
+        chosenDayDiv.style.backgroundColor = "#e4d1bf";
+    } else if (chosenDay === "false") {
+        chosenDayDiv.style.backgroundColor = "white";
+    }
+}
+
+var dayDivs = document.querySelectorAll(".day");
+for (var i = 0; i < currentDate; i++) {
+    dayDivs[i].onclick = function(e) {
+        var num = e.target.innerText;
+        var selectedDate = document.getElementById(e.target.id);
+        var storageString = "" + (currentMonth + 1) + "-" + num + "-" + currentYear;
+
+        if (localStorage.getItem(storageString) === "false") {
+            selectedDate.style.backgroundColor = "#e4d1bf";
+            localStorage.setItem(storageString, true);
+            daysCompleted++;
+        } else if (localStorage.getItem(storageString) === "true") {
+            selectedDate.style.backgroundColor = "white";
+            localStorage.setItem(storageString, false);
+            daysCompleted--;
+        }
+
+        totalDays.innerHTML = daysCompleted + "/" + dayCount;
+        console.log(daysCompleted, currentDate);
+
+        if (daysCompleted === currentDate) {
+            alert("Wow look at you gooo!");
+        }
     }
 }

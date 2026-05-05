@@ -32,7 +32,9 @@ body {
     display: flex;
     justify-content: space-between;
     border-radius: 10px 10px 0px 0px;
-    border: 2px solid black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
     padding: 0px 20px;
     font-size: 20px;
     background-color: #e4d1bf;
@@ -55,5 +57,4 @@ body {
     font-size: 15px;
     text-align: center;
     border-radius: 20px;
-    background-color: #e4d1bf;
 }
