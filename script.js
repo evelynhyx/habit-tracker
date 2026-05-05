@@ -7,14 +7,14 @@ var currentYear = date.getFullYear();
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-var title = document.getElementById("title");
+var title = document.getElementsByClassName("title");
 title.innerHTML = "🧸 " + months[currentMonth] + " 🧸";
 
 var habitTitle = document.getElementById("habitTitle");
 habitTitle.onclick = function() {
     let habits = prompt("What's your habit", habitTitle.innerHTML);
     if (habits.length == 0) {
-        habitTitle.innerHTML = "Click to set your habit";
+        habitTitle.innerHTML = "Click to Set your Habit";
     } else {
         habitTitle.innerHTML = habits;
     }
@@ -104,4 +104,17 @@ for (var i = 0; i < currentDate; i++) {
             alert("Wow look at you gooo!");
         }
     }
+}
+
+var resetButton = document.getElementById("resetButton");
+resetButton.onclick = function() {
+    for (var i = 0; i < dayCount; i++) {
+        var tempStrings = "" + (currentMonth + 1) + "-" + (i + 1) + "-" + currentYear;
+        localStorage.setItem(tempStrings, "false");
+        var curDay = document.getElementById("day" + (i + 1));
+        curDay.style.backgroundColor = "white";
+    }
+
+    daysCompleted = 0;
+    totalDays.innerHTML = daysCompleted + "/" + daysInThisMonth;
 }

@@ -4,12 +4,12 @@ body {
     font-family: 'Jua', sans-serif;
 }
 
-#title {
+.title {
     margin-top: 100px;
     line-height: 10px;
 }
 
-#subtitle {
+.subtitle {
     opacity: 0.7;
     font-size: 18px;
     margin-bottom: 20px;
@@ -41,6 +41,18 @@ body {
     line-height: 0px;
 }
 
+#habitTitle {
+    font-size: 20px;
+    font-family: "Jua", sans-serif;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#habitTitle:hover {
+    color: #786150;
+}
+
 #calendarContent {
     padding: 20px;
     border: 2px solid black;
@@ -57,4 +69,44 @@ body {
     font-size: 15px;
     text-align: center;
     border-radius: 20px;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.day:hover {
+    cursor: pointer;
+    color: #786150;
+}
+
+.day:hover:empty {
+    cursor: default;
+}
+
+#resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Jua", sans-serif;
+    background-color: #e4d1bf;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease
+}
+
+#resetButton:hover {
+    background-color: #786150;
+    color: #f7f0e9;
+}
+
+#infoLeader {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+#infoLink {
+    color: #786150;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }

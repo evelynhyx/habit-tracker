@@ -11,3 +11,7 @@ Habit Tracker involves the use of some HTML, CSS, and a lot of JS. I structured 
 
 ------
 challenge
+
+images to use:
+https://www.flaticon.com/authors/kimchi-the-hamster/lineal-color?author_id=1167&type=sticker
+https://www.flaticon.com/authors/monkey_and_banana/lineal-color?author_id=1167&type=sticker (might change theme to monkey lwk)
