@@ -8,7 +8,7 @@ var currentYear = date.getFullYear();
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 var title = document.getElementsByClassName("title");
-title.innerHTML = "🧸 " + months[currentMonth] + " 🧸";
+title[0].innerHTML = months[currentMonth];
 
 var habitTitle = document.getElementById("habitTitle");
 habitTitle.onclick = function() {
@@ -101,7 +101,7 @@ for (var i = 0; i < currentDate; i++) {
         console.log(daysCompleted, currentDate);
 
         if (daysCompleted === currentDate) {
-            alert("Wow look at you gooo!");
+            alert("Look at that streak!!!");
         }
     }
 }
