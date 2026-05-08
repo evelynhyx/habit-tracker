@@ -7,18 +7,48 @@ var currentYear = date.getFullYear();
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+var savedHabit = localStorage.getItem("habitName");
+if (savedHabit) {
+    habitTitle.innerHTML = savedHabit;
+}
+
 var title = document.getElementsByClassName("title");
 title[0].innerHTML = months[currentMonth];
 
-var habitTitle = document.getElementById("habitTitle");
+var habitOverlay = document.getElementById("habitOverlay");
+var habitInput = document.getElementById("habitInput");
+
 habitTitle.onclick = function() {
-    let habits = prompt("What's your habit", habitTitle.innerHTML);
-    if (habits.length == 0) {
-        habitTitle.innerHTML = "Click to Set your Habit";
-    } else {
-        habitTitle.innerHTML = habits;
-    }
+    habitOverlay.classList.add("open");
 }
+
+document.getElementById("modalSave").onclick = function() {
+    let val = habitInput.value.trim();
+    if (val.length > 0) {
+        habitTitle.innerHTML = val;
+        localStorage.setItem("habitName", val);
+    }
+    habitOverlay.classList.remove("open");
+}
+
+document.getElementById("modalCancel").onclick = function() {
+    habitOverlay.classList.remove("open");
+}
+
+habitOverlay.addEventListener("click", function(e) {
+    if (e.target === habitOverlay) habitOverlay.classList.remove("open");
+});
+
+habitInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        let val = habitInput.value.trim();
+        if (val.length > 0) {
+            habitTitle.innerHTML = val;
+        }
+        habitOverlay.classList.remove("open");
+    }
+    if (e.key === "Escape") habitOverlay.classList.remove("open");
+});
 
 var daysInTheMonthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 var daysInThisMonth = daysInTheMonthList[currentMonth];
@@ -99,10 +129,6 @@ for (var i = 0; i < currentDate; i++) {
 
         totalDays.innerHTML = daysCompleted + "/" + dayCount;
         console.log(daysCompleted, currentDate);
-
-        if (daysCompleted === currentDate) {
-            alert("Look at that streak!!!");
-        }
     }
 }
 
@@ -117,4 +143,7 @@ resetButton.onclick = function() {
 
     daysCompleted = 0;
     totalDays.innerHTML = daysCompleted + "/" + daysInThisMonth;
+
+    habitTitle.innerHTML = "New Habit";
+    localStorage.removeItem("habitName");
 }

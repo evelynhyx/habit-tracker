@@ -126,3 +126,42 @@ body {
     margin: auto;
     align-items: center;
 }
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 320px;
+    gap: 15px;
+    background: white;
+    border-radius: 12px;
+}
+
+.modalTitle {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}

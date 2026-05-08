@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Jua&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
+
         <h1 class="title">Month</h1>
         <h2 class="subtitle">Welcome to your monthly habit tracker!</h2>
 
@@ -20,6 +21,7 @@
                     <p id="habitTitle">New Habit</p>
                     <p id="totalDays">0/31</p>
                 </div>
+
                 <div id="calendarContent">
                     <div id="tracker">
                         <div class="days">
@@ -71,8 +73,21 @@
                 </div>
             </div>
         </div>
+
         <button id="resetButton">Reset</button>
         <p class="smallText">Don't know what to do? Click <a class="smallTextLink" href="info.html">here</a></p>
         <script src="script.js" defer></script>
+
+        <div class="overlay" id="habitOverlay">
+            <div class="modal">
+                <h3 class="modalTitle">What's your habit?</h3>
+                <input type="text" id="habitInput" placeholder="Enter habit name" maxlength="40" />
+                <div class="modalButtons">
+                    <button id="modalCancel">Cancel</button>
+                    <button id="modalSave">Save</button>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
