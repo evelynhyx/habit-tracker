@@ -165,3 +165,58 @@ body {
     gap: 10px;
     margin-top: 8px;
 }
+
+#modalCancel {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: "Jua", sans-serif;
+    background-color: #e4d1bf;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3 ease, color 0.3 ease;
+}
+
+#modalCancel:hover {
+    background-color: #786150;
+    color: #f7f0e9;
+}
+
+#modalSave {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: "Jua", sans-serif;
+    background-color: #e4d1bf;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3 ease, color 0.3 ease;
+}
+
+#modalSave:hover {
+    background-color: #786150;
+    color: #f7f0e9;
+}
+
+#habitInput {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#monkeyTracking {
+    margin-top: 5px;
+    height: 150px;
+    width: auto;
+    animation: bobbing 2s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
